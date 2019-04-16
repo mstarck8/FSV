@@ -11,7 +11,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=35, label='Password:', widget=forms.PasswordInput)
 
 
-#class ContactForm(forms.Form):
-    #name = forms.CharField(max_length=250, required=True)
-    #email = forms.EmailField(required=True)
-    #message = forms.CharField(required=True, widget=forms.Textarea)
+class ContactForm(forms.Form):
+    Name = forms.CharField(max_length=250, required=True)
+    Email = forms.EmailField(required=True)
+    Nachricht = forms.CharField(required=True, widget=forms.Textarea)

@@ -2,8 +2,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse
+
+from django.conf import settings
 from .models import Wettkampf
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, ContactForm
+from django.core.mail import EmailMessage, send_mail
+from django.template.loader import get_template
 
 
 def index(request):
@@ -15,8 +19,35 @@ def training(request):
     return render(request, 'web/training.html')
 
 
+def maischwimmen(request):
+    return render(request, 'web/maischwimmen.html')
+
+
+def trainingslager(request):
+    return render(request, 'web/trainingslager.html')
+
+
 def contact_view(request):
-    return render(request, 'web/kontakt.html')
+    contact_form = ContactForm
+    if request.method == 'POST':
+        form = contact_form(request.POST)
+        if form.is_valid():
+            contact_name = request.POST.get('Name')
+            contact_email = request.POST.get('Email')
+            form_content = request.POST.get('Nachricht')
+
+            subject = 'Kontaktformluar Erhalten'
+            from_email = settings.DEFAULT_FROM_EMAIL
+            to_email = [settings.DEFAULT_FROM_EMAIL]
+
+            context = {'contact_name': contact_name, 'contact_email': contact_email, 'form_content': form_content}
+
+            contact_message = get_template('contact_template.txt').render(context)
+
+            send_mail(subject, contact_message, from_email, to_email, fail_silently=True)
+
+            return redirect('web:index')
+    return render(request, 'web/kontakt.html', {'contact_form': contact_form})
 
 
 def register_view(request):

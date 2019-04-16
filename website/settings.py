@@ -129,3 +129,14 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+
+
+SEND_GRID_API_KEY = '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'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'mstarck@unitybox.de'
+EMAIL_HOST_USER = 'mstarck'
+EMAIL_HOST_PASSWORD = 'hatzie950'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Kontaktemail von der FSV-Website'
+

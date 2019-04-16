@@ -3,6 +3,10 @@
     border-bottom: 3vh solid black;
 }
 
+#create label{
+    display: none;
+}
+
 #Artikel{
     border: none;
     border-radius: 0;
