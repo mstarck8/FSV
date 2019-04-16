@@ -1,0 +1,38 @@
+{% extends 'web/base.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+
+{% block titel %}Frankenberger Schwimmverein{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href='/static/css/kontakt.css' type="text/css">
+{% endblock %}
+
+
+{% block nav %}
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-text">
+            <a href="{% url 'web:index' %}" class="btn btn-dark">Home</a>
+            <a href="{% url 'web:training' %}" class="btn btn-dark">Training</a>
+            <a href="{% url 'web:contact' %}" class="btn btn-danger">Kontakt</a>
+            <a href="{% url 'news:timeline' %}" class="btn btn-dark">Artikel</a>
+            <a href="termine.html" class="btn btn-dark">Termine</a>
+        </span>
+    </nav>
+{% endblock %}
+
+
+{% block mainForm %}
+	<div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <h1>Kontakt</h1>
+        <p>Hier können sie Kontakt mit uns aufnehmen</p>
+
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ contact_form.as_p }}
+            <button id="button" type="submit" class="btn btn-danger">Senden</button>
+        </form>
+    </div>
+    <div id="pusher"></div>
+{% endblock %}

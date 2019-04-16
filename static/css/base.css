@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+}
+
+
+footer{
+    background-color: #343A40;
+    border-top: 0.8vh solid #DC3545;
+    text-align: right;
+    margin-top: 3vh;
+    padding-top: 1.2vh;
+    padding-bottom: .8vh;
+    padding-right: .5%;
+}
+
+footer p{
+    margin-bottom: 1vh;
+}

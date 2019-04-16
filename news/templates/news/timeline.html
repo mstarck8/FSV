@@ -1,0 +1,52 @@
+{% extends 'news/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href='/static/css/timeline.css' type="text/css">{% endblock %}
+
+
+{% block mainForm %}
+    <div class="container">
+
+
+        <h1>Artikel</h1>
+
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'news:create' %}" method="post" id="create">
+            {% bootstrap_form post_form %}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Senden</button>
+        </form>
+        {% endif %}
+
+        {% for post in posts %}
+            <div class="row">
+                <div class="col-12">
+                    <div id="Artikel" class="card">
+                         <div class="card-body">
+                             <div class="row">
+                                 <div class="col-4">
+                                     <p id="datum">{{ post.created_at | date:"d. F Y" }}</p>
+                                 </div>
+                                 <div class="col-8">
+                                     <h3 class="card-title">{{ post.header }}</h3>
+                                     <p id="inhalt" class="card-text">{{ post.content }}</p>
+                                     <a href="{{ post.get_absolute_url }}" class="btn btn-danger btn-sm">mehr</a>
+                                     {% if post.user == request.user %}
+                                     <form action="{% url 'news:delete' post.id %}" method="post" id="löschen">
+                                         {% csrf_token %}
+                                         <button type="submit" class="btn btn-outline-danger btn-sm">Löschen</button>
+                                     </form>
+                                     {% endif %}
+                                 </div>
+                             </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+

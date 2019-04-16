@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="{% static 'pics/icon.png' %}">
+
+	<title></title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href='/static/css/base.css' type="text/css">
+	{% block style %}{% endblock %}
+</head>
+
+    <body>
+		<div class="container">
+			<header>
+				<img src="{% static 'news/pics/banner.png' %}" class="img-fluid" alt="Responsive image">
+			</header>
+			<nav class="navbar navbar-dark bg-dark">
+				<span class="navbar-text">
+					<a href="{% url 'web:index' %}" class="btn btn-dark">Home</a>
+					<a href="{% url 'web:training' %}" class="btn btn-dark">Training</a>
+					<a href="{% url 'web:contact' %}" class="btn btn-dark">Kontakt</a>
+					<a href="{% url 'news:timeline' %}" class="btn btn-danger">Artikel</a>
+					<a href="termine.html" class="btn btn-dark">Termine</a>
+				</span>
+			</nav>
+
+			{% block mainForm %}
+
+			{% endblock %}
+
+		</div>
+		<footer>
+			<p><a href="impressum.html" class="btn btn-outline-danger btn-sm">Impressum</a></p>
+			{% if request.user.is_authenticated %}
+			<p><a href="{% url 'web:logout' %}"class="btn btn-outline-danger btn-sm">Logout</a></p>
+			{% else %}
+			<p><a href="{% url 'web:login' %}"class="btn btn-outline-danger btn-sm">Login</a></p>
+			{% endif %}
+		</footer>
+	</body>
+</html>

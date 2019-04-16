@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+
+{% block style %}<link rel="stylesheet" href='/static/css/artikel.css' type="text/css">{% endblock %}
+
+{% block mainForm %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">{{ post.header }}</h1>
+                <p class="card-text">{{ post.created_at | date:"d. F Y" }}</p>
+                <p class="card-text">{{ post.content | linebreaks }}</p>
+                {% if post.user == request.user %}
+                <form action="{% url 'news:delete' post.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Löschen</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

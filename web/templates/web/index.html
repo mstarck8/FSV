@@ -1,0 +1,59 @@
+{% extends 'web/base.html' %}
+
+{% load bootstrap4 %}
+{% load static %}
+
+{% block titel %}Frankenberger Schwimmverein{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href='/static/css/index.css' type="text/css">
+{% endblock %}
+
+{% block nav %}
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-text">
+            <a href="{% url 'web:index' %}" class="btn btn-danger">Home</a>
+            <a href="{% url 'web:training' %}" class="btn btn-dark">Training</a>
+            <a href="{% url 'web:contact' %}" class="btn btn-dark">Kontakt</a>
+            <a href="{% url 'news:timeline' %}" class="btn btn-dark">Artikel</a>
+            <a href="termine.html" class="btn btn-dark">Termine</a>
+        </span>
+    </nav>
+{% endblock %}
+
+
+{% block mainForm %}
+    <div class="banner">
+        <img class="d-block w-100" src="/static/img/slider1.png" alt="first slide">
+    </div>
+
+
+
+    <div id="main" class="row">
+        <div class="col-9">
+            <h1>FSV</h1>
+        </div>
+    
+        <div class="col-3">
+            <div id="wettkämpfe" class="card">
+                <h3 class="card-title">Wettkämpfe</h3>
+
+
+                {% for wk in wks %}
+                     <div class="row">
+                        <div class="col-12">
+                            <div id="wettkampf" class="card">
+                                <p id="datum">{{ wk.Datum | date:"d.m.Y" }}</p>
+                                <p id="wk" >{{ wk.Ort }}</p>
+                            </div>
+                        </div>
+
+                     </div>
+                {% endfor %}
+            </div>
+            <a id="aktuelles" class="btn btn-danger btn-lg btn-block" href="#">Maischwimmen</a>
+            <a id="aktuelles" class="btn btn-danger btn-lg btn-block" href="#">Trainingslager</a>
+        </div>
+    </div>
+
+{% endblock %}

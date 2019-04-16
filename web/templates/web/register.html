@@ -1,0 +1,17 @@
+{% extends 'web/base.html' %}
+{% load bootstrap4 %}
+
+{% block titel %}FSV - Registrieren{% endblock %}
+
+{% block mainForm %}
+
+    <h1>Registrieren</h1>
+    <p>Dieser Bereich ist nur für Befugte</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {% bootstrap_form register_form %}
+        <button id="button" type="submit" class="btn btn-danger">Erstellen</button>
+    </form>
+
+{% endblock %}

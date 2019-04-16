@@ -1,0 +1,30 @@
+#create{
+    padding-bottom: 3vh;
+    border-bottom: 3vh solid black;
+}
+
+#Artikel{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #343A40;
+
+}
+
+#datum{
+    font-size: 1.4em;
+    color: grey;
+}
+
+#inhalt{
+    max-height: 18vh;
+    overflow: hidden;
+    margin-bottom: 1vh;
+}
+
+p{
+    margin-bottom: 20px;
+}
+
+#löschen{
+    margin-left: 75vh;
+}

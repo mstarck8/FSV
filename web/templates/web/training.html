@@ -1,0 +1,94 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title%} FSV - Training {% endblock %}
+
+
+{% block style %}<link rel="stylesheet" href='/static/css/training.css' type="text/css">{% endblock %}
+
+
+
+{% block nav %}
+				<nav class="navbar navbar-dark bg-dark">
+					<span class="navbar-text">
+							<a href="{% url 'web:index' %}" class="btn btn-dark">Home</a>
+							<a href="{% url 'web:training' %}" class="btn btn-danger">Training</a>
+							<a href="{% url 'web:contact' %}" class="btn btn-dark">Kontakt</a>
+							<a href="{% url 'news:timeline' %}" class="btn btn-dark">Artikel</a>
+							<a href="termine.html" class="btn btn-dark">Termine</a>
+					</span>
+				</nav>
+				{% endblock %}
+
+{% block mainForm %}
+
+    <div class="container">
+    	<h1>Trainingszeiten</h1>
+		<p><h3>Stand 20.01.2018</h3></p>
+		<p><h3>In der Hallenbadsaison 2017/2018 sind die Trainingszeiten wie folgt:</h3></p>
+		<table class="table table-bordered table-hover table-responsive-xl">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Uhrzeit</th>
+					<th scope="col">Montag</th>
+					<th scope="col">Dienstag</th>
+					<th scope="col">Mittwoch</th>
+					<th scope="col">Donnerstag</th>
+					<th scope="col">Freitag</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td scope="row">13:00-14:45</td>
+					<td>---------</td>
+					<td>Schwimmanfänger</td>
+					<td>---------</td>
+					<td>---------</td>
+					<td>Schwimmanfänger</td>
+				</tr>
+				<tr>
+					<td scope="row">15:00-16:30</td>
+					<td>---------</td>
+					<td>---------</td>
+					<td>---------</td>
+					<td>---------</td>
+					<td>L1-L3</td>
+				</tr>
+				<tr>
+					<td scope="row">17:00-18:00</td>
+					<td>Nachwuchsgruppen L2/L3</td>
+					<td>---------</td>
+					<td>L2/L3</td>
+					<td>L1-L3 <p>in Battenberg</p></td>
+					<td>---------</td>
+				</tr>
+				<tr>
+					<td scope="row">18:00-19:00</td>
+					<td>L1-L3 + Schwimmanfänger</td>
+					<td>---------</td>
+					<td>L1-L3</td>
+					<td>L1-L3 <p>in Battenberg</p></td>
+					<td>---------</td>
+				</tr>
+				<tr>
+					<td scope="row">19:00-20:00</td>
+					<td>L1</td>
+					<td>---------</td>
+					<td>L1-L3</td>
+					<td>---------</td>
+					<td>---------</td>
+		        </tr>
+					<td scope="row">20:00-21:00</td>
+					<td>Erwachsene/Triathlon</td>
+					<td>---------</td>
+					<td>Erwachsene/Triathlon</td>
+					<td>---------</td>
+					<td>---------</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<p id="p1">Die Uhrzeiten sind reine Trainingszeiten. Bitte immer 10 Minuten vorher da sein!<p>
+		<p id="pEnde">Zusätzlich findet an wettkampffreien Samstagen Training von 12:30 - 14:30 Uhr in Battenberg statt.</p>
+	</div>
+
+{% endblock %}

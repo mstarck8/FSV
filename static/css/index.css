@@ -1,0 +1,38 @@
+#main{
+    margin-top: 5vh;
+}
+
+h1{
+    text-align: left;
+}
+
+#wettkämpfe{
+    background-color: #999999;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#wettkampf{
+    background-color: #999999;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    margin-bottom: 1.5vh;
+}
+
+#datum{
+    margin: 0;
+    font-size: 0.8em;
+}
+
+#wk{
+    margin: 0;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+#aktuelles{
+    margin-bottom: 1vh;
+}
